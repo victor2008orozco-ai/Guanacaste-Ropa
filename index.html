@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Marea Studio · Ropa de hombre</title>
+  <meta name="description" content="Marea Studio: ropa de hombre ligera y bien hecha. Compra en línea o visítanos en nuestra tienda." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== PRELOADER ========== -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__brand">Marea</div>
+    <div class="preloader__count"><span id="loaderCount">0</span>%</div>
+    <div class="preloader__bar"><span id="loaderBar"></span></div>
+  </div>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <a href="#inicio" class="logo" aria-label="Marea Studio, inicio">
+      <svg class="logo__wave" viewBox="0 0 40 20" aria-hidden="true"><path d="M1 13c4-6 8-6 12 0s8 6 12 0 8-6 14 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+      <span>Marea</span>
+    </a>
+
+    <nav class="nav" aria-label="Principal">
+      <a href="#coleccion" class="nav__link">Colecciones</a>
+      <a href="#tienda" class="nav__link">Comprar</a>
+      <a href="#lookbook" class="nav__link">Lookbook</a>
+      <a href="#local" class="nav__link">Nuestra tienda</a>
+    </nav>
+
+    <div class="header__actions">
+      <button class="icon-btn" id="searchOpen" aria-label="Buscar productos">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+      </button>
+      <button class="icon-btn" id="wishOpen" aria-label="Favoritos">
+        <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9-9.2C1.6 7.4 4 4 7.3 4c2 0 3.5 1.1 4.7 2.7C13.2 5.1 14.7 4 16.7 4 20 4 22.4 7.4 21 10.8 19 15.6 12 20 12 20Z"/></svg>
+        <span class="badge badge--soft" id="wishCount">0</span>
+      </button>
+      <button class="icon-btn" id="cartOpen" aria-label="Abrir carrito">
+        <svg viewBox="0 0 24 24"><path d="M5 7h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+        <span class="badge" id="cartCount">0</span>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== MENÚ PANTALLA COMPLETA ========== -->
+  <div class="menu" id="menu" data-lenis-prevent aria-hidden="true">
+    <div class="menu__bg"></div>
+    <div class="menu__inner">
+      <ul class="menu__list">
+        <li><a href="#inicio" class="menu__link" data-img="https://images.unsplash.com/photo-1488161628813-04466f872be2?auto=format&fit=crop&w=900&q=80"><span>Inicio</span></a></li>
+        <li><a href="#coleccion" class="menu__link" data-img="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&w=900&q=80"><span>Colecciones</span></a></li>
+        <li><a href="#tienda" class="menu__link" data-filter="superior" data-img="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=900&q=80"><span>Camisas</span></a></li>
+        <li><a href="#tienda" class="menu__link" data-filter="chaquetas" data-img="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=900&q=80"><span>Chaquetas</span></a></li>
+        <li><a href="#tienda" class="menu__link" data-filter="sastreria" data-img="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80"><span>Sastrería</span></a></li>
+        <li><a href="#tienda" class="menu__link" data-filter="accesorios" data-img="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=80"><span>Accesorios</span></a></li>
+        <li><a href="#local" class="menu__link" data-img="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=900&q=80"><span>Visítanos</span></a></li>
+      </ul>
+
+      <div class="menu__preview" aria-hidden="true">
+        <img id="menuPreview" src="https://images.unsplash.com/photo-1488161628813-04466f872be2?auto=format&fit=crop&w=900&q=80" alt="" />
+      </div>
+
+      <div class="menu__footer">
+        <div>
+          <p class="menu__label">Tienda</p>
+          <p>Calle de las Palmeras 24, Centro<br/>Lun a sáb, 10:00 a 19:00</p>
+        </div>
+        <div>
+          <p class="menu__label">Escríbenos</p>
+          <p><a href="mailto:hola@mareastudio.com">hola@mareastudio.com</a><br/><a href="https://wa.me/00000000000" target="_blank" rel="noopener">WhatsApp</a></p>
+        </div>
+        <div class="menu__social">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="TikTok">TikTok</a>
+          <a href="#" aria-label="Pinterest">Pinterest</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== BUSCADOR ========== -->
+  <div class="search" id="search" data-lenis-prevent aria-hidden="true" role="dialog" aria-label="Buscar productos">
+    <div class="search__box">
+      <input type="search" id="searchInput" placeholder="Busca camisas, jeans, chaquetas…" autocomplete="off" />
+      <button class="icon-btn" id="searchClose" aria-label="Cerrar buscador">
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="search__results" id="searchResults"></div>
+  </div>
+
+  <main id="smooth">
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="inicio">
+      <div class="hero__images">
+        <figure class="hero__img hero__img--a" data-speed="-0.35">
+          <img src="https://images.unsplash.com/photo-1488161628813-04466f872be2?auto=format&fit=crop&w=900&q=80" alt="Hombre con look urbano" />
+        </figure>
+        <figure class="hero__img hero__img--b" data-speed="0.25">
+          <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=900&q=80" alt="Hombre con chaqueta de temporada" />
+        </figure>
+        <figure class="hero__img hero__img--c" data-speed="-0.6">
+          <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?auto=format&fit=crop&w=900&q=80" alt="Hombre con camisa clara" />
+        </figure>
+      </div>
+
+      <h1 class="hero__title" aria-label="Marea">
+        <span class="hero__word" data-split>Marea</span>
+      </h1>
+
+      <div class="hero__bottom">
+        <p class="hero__lead">Ropa de hombre con buenos cortes y telas que aguantan el día completo. Compra en línea o pruébatela en nuestra tienda.</p>
+        <div class="hero__ctas">
+          <a href="#tienda" class="btn btn--primary">Ver la colección</a>
+          <a href="#local" class="btn btn--ghost">Visitar la tienda</a>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true"><span></span>Desliza</div>
+    </section>
+
+    <!-- ========== MARQUEE ========== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" id="marquee">
+        <span>Envío gratis desde $80</span><i>✺</i>
+        <span>Recoge en tienda sin costo</span><i>✺</i>
+        <span>Cambios en 30 días</span><i>✺</i>
+        <span>Nueva temporada Brisa</span><i>✺</i>
+        <span>Envío gratis desde $80</span><i>✺</i>
+        <span>Recoge en tienda sin costo</span><i>✺</i>
+        <span>Cambios en 30 días</span><i>✺</i>
+        <span>Nueva temporada Brisa</span><i>✺</i>
+      </div>
+    </div>
+
+    <!-- ========== IMAGEN QUE SE EXPANDE ========== -->
+    <section class="expand" id="expand">
+      <div class="expand__stage">
+        <p class="expand__side expand__side--l">Temporada</p>
+        <div class="expand__media" id="expandMedia">
+          <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1800&q=80" alt="Prendas de la nueva temporada en la tienda" />
+          <div class="expand__copy">
+            <h2>Brisa de verano</h2>
+            <p>Camisas de lino, chinos ligeros y algodón orgánico para los días de calor.</p>
+            <a href="#tienda" class="btn btn--light" data-filter-link="nuevo">Descubrir lo nuevo</a>
+          </div>
+        </div>
+        <p class="expand__side expand__side--r">Brisa</p>
+      </div>
+    </section>
+
+    <!-- ========== CARRUSEL 3D ========== -->
+    <section class="ring-section" id="carrusel">
+      <div class="ring-section__head">
+        <h2 class="section-title">Los favoritos de la semana</h2>
+        <p class="section-sub">Gira mientras bajas, o arrástralo con el dedo o el mouse. Toca una prenda para verla.</p>
+      </div>
+      <div class="ring-viewport" id="ringViewport">
+        <div class="ring" id="ring"></div>
+      </div>
+      <div class="ring-caption" id="ringCaption" aria-live="polite">
+        <span class="ring-caption__name"></span>
+        <span class="ring-caption__price"></span>
+      </div>
+      <div class="ring-controls">
+        <button class="round-btn" id="ringPrev" aria-label="Prenda anterior">
+          <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button class="round-btn" id="ringNext" aria-label="Siguiente prenda">
+          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ========== COLECCIONES (fila deslizable, sin bloquear el scroll) ========== -->
+    <section class="hscroll" id="coleccion">
+      <div class="hscroll__head">
+        <div>
+          <h2 class="section-title">Colecciones pensadas para tu semana</h2>
+          <p class="section-sub">Desliza hacia un lado con el dedo, arrastra con el mouse o usa las flechas.</p>
+        </div>
+        <div class="hscroll__arrows">
+          <button class="round-btn round-btn--dark" id="hPrev" aria-label="Colección anterior">
+            <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <button class="round-btn round-btn--dark" id="hNext" aria-label="Siguiente colección">
+            <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="hscroll__track" id="hTrack">
+        <article class="panel" style="--panel:#C2602E">
+          <div class="panel__img"><img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=1000&q=80" alt="Colección Lino" draggable="false" /></div>
+          <div class="panel__body">
+            <h3>Lino para el calor</h3>
+            <p>Camisas frescas y ligeras para los días largos.</p>
+            <a href="#tienda" class="link-line" data-filter-link="superior">Ver camisas</a>
+          </div>
+        </article>
+
+        <article class="panel" style="--panel:#1E3A52">
+          <div class="panel__img"><img src="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&w=1000&q=80" alt="Colección Sastrería" draggable="false" /></div>
+          <div class="panel__body">
+            <h3>Noche en la ciudad</h3>
+            <p>Trajes y sacos que funcionan de la oficina a la cena.</p>
+            <a href="#tienda" class="link-line" data-filter-link="sastreria">Ver sastrería</a>
+          </div>
+        </article>
+
+        <article class="panel" style="--panel:#5E6B3C">
+          <div class="panel__img"><img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=1000&q=80" alt="Colección Chaquetas" draggable="false" /></div>
+          <div class="panel__body">
+            <h3>Capas que duran</h3>
+            <p>Cuero, bomber y algodón grueso para cuando refresca.</p>
+            <a href="#tienda" class="link-line" data-filter-link="chaquetas">Ver chaquetas</a>
+          </div>
+        </article>
+
+        <article class="panel" style="--panel:#8C6A3F">
+          <div class="panel__img"><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=80" alt="Colección Básicos" draggable="false" /></div>
+          <div class="panel__body">
+            <h3>Básicos de todos los días</h3>
+            <p>Camisetas, jeans y chinos que mejoran con cada lavado.</p>
+            <a href="#tienda" class="link-line" data-filter-link="pantalones">Ver pantalones</a>
+          </div>
+        </article>
+
+        <article class="panel" style="--panel:#2B2F33">
+          <div class="panel__img"><img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1000&q=80" alt="Colección Accesorios" draggable="false" /></div>
+          <div class="panel__body">
+            <h3>El toque final</h3>
+            <p>Relojes, tenis y mochilas que completan cualquier look.</p>
+            <a href="#tienda" class="link-line" data-filter-link="accesorios">Ver accesorios</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========== TIENDA / PRODUCTOS ========== -->
+    <section class="shop" id="tienda">
+      <div class="shop__head">
+        <h2 class="section-title">Compra en línea</h2>
+        <div class="shop__tools">
+          <div class="filters" role="tablist" aria-label="Filtrar por categoría">
+            <button class="chip is-active" data-filter="todos" role="tab" aria-selected="true">Todo</button>
+            <button class="chip" data-filter="nuevo" role="tab" aria-selected="false">Nuevo</button>
+            <button class="chip" data-filter="superior" role="tab" aria-selected="false">Camisas y camisetas</button>
+            <button class="chip" data-filter="pantalones" role="tab" aria-selected="false">Pantalones</button>
+            <button class="chip" data-filter="chaquetas" role="tab" aria-selected="false">Chaquetas</button>
+            <button class="chip" data-filter="sastreria" role="tab" aria-selected="false">Sastrería</button>
+            <button class="chip" data-filter="accesorios" role="tab" aria-selected="false">Accesorios</button>
+            <button class="chip" data-filter="oferta" role="tab" aria-selected="false">Ofertas</button>
+          </div>
+          <label class="select">
+            <span class="sr-only">Ordenar productos</span>
+            <select id="sortSelect">
+              <option value="destacados">Destacados</option>
+              <option value="precio-asc">Precio: menor a mayor</option>
+              <option value="precio-desc">Precio: mayor a menor</option>
+              <option value="nombre">Nombre A–Z</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="grid" id="productGrid"></div>
+      <p class="grid__empty" id="gridEmpty" hidden>No hay prendas en esta categoría todavía. Prueba con “Todo”.</p>
+    </section>
+
+    <!-- ========== LOOKBOOK PARALLAX ========== -->
+    <section class="lookbook" id="lookbook">
+      <h2 class="lookbook__title">Cómo se lleva</h2>
+      <div class="lookbook__cols">
+        <div class="lookbook__col" data-speed="-0.15">
+          <figure><img src="https://images.unsplash.com/photo-1488161628813-04466f872be2?auto=format&fit=crop&w=800&q=80" alt="Look urbano con chaqueta" /></figure>
+          <figure><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80" alt="Retrato con camisa casual" /></figure>
+        </div>
+        <div class="lookbook__col lookbook__col--mid" data-speed="0.2">
+          <figure><img src="https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?auto=format&fit=crop&w=800&q=80" alt="Look de fin de semana" /></figure>
+          <figure><img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?auto=format&fit=crop&w=800&q=80" alt="Abrigo para la noche" /></figure>
+        </div>
+        <div class="lookbook__col" data-speed="-0.3">
+          <figure><img src="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&w=800&q=80" alt="Ajuste de traje a medida" /></figure>
+          <figure><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80" alt="Camiseta básica" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== LOCAL FÍSICO ========== -->
+    <section class="local" id="local">
+      <div class="local__media">
+        <img data-speed-img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=80" alt="Interior de la tienda Marea Studio" />
+      </div>
+      <div class="local__info">
+        <h2 class="section-title">Ven a probártela</h2>
+        <p class="local__lead">Una tienda de ropa de hombre pequeña y sin prisas. Te ayudamos a encontrar tu talla, guardamos tus pedidos en línea para que los recojas y hacemos ajustes de bastas y mangas el mismo día.</p>
+
+        <dl class="local__facts">
+          <div><dt>Dirección</dt><dd>Calle de las Palmeras 24, Centro</dd></div>
+          <div><dt>Horario</dt><dd>Lunes a sábado, 10:00 a 19:00<br/>Domingo, 11:00 a 16:00</dd></div>
+          <div><dt>Teléfono</dt><dd><a href="tel:+0000000000">+00 0000 0000</a></dd></div>
+        </dl>
+
+        <div class="local__actions">
+          <a class="btn btn--primary" href="https://www.google.com/maps/search/?api=1&query=Calle+de+las+Palmeras+24" target="_blank" rel="noopener">Abrir en Google Maps</a>
+          <button class="btn btn--ghost" id="openAppointment">Reservar un probador</button>
+        </div>
+
+        <form class="appointment" id="appointmentForm" hidden>
+          <h3>Reserva tu probador</h3>
+          <div class="field-row">
+            <label class="field"><span>Nombre</span><input name="nombre" required /></label>
+            <label class="field"><span>Teléfono</span><input name="tel" type="tel" required /></label>
+          </div>
+          <div class="field-row">
+            <label class="field"><span>Día</span><input name="dia" type="date" required /></label>
+            <label class="field"><span>Hora</span>
+              <select name="hora" required>
+                <option value="">Elige una hora</option>
+                <option>10:00</option><option>11:30</option><option>13:00</option>
+                <option>15:00</option><option>16:30</option><option>18:00</option>
+              </select>
+            </label>
+          </div>
+          <button class="btn btn--primary" type="submit">Confirmar reserva</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ========== OPINIONES ========== -->
+    <section class="reviews">
+      <h2 class="section-title">Lo que dicen quienes nos visitan</h2>
+      <div class="reviews__grid">
+        <blockquote class="review">
+          <p>Compré el traje en línea, lo recogí al día siguiente y me ajustaron las mangas ahí mismo. Así da gusto.</p>
+          <footer>Diego R. <span class="stars" aria-label="5 de 5 estrellas">★★★★★</span></footer>
+        </blockquote>
+        <blockquote class="review review--alt">
+          <p>La chaqueta de cuero es suave desde el primer día. Me la pongo casi a diario.</p>
+          <footer>Andrés M. <span class="stars" aria-label="5 de 5 estrellas">★★★★★</span></footer>
+        </blockquote>
+        <blockquote class="review">
+          <p>Reservé probador antes de una boda. Sin filas y con alguien que de verdad sabe de tallas.</p>
+          <footer>Javier S. <span class="stars" aria-label="4 de 5 estrellas">★★★★☆</span></footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ========== NEWSLETTER ========== -->
+    <section class="newsletter">
+      <div class="newsletter__inner">
+        <h2>Recibe 10% en tu primera compra</h2>
+        <p>Te escribimos cuando llegan prendas nuevas. Nada más.</p>
+        <form class="newsletter__form" id="newsletterForm">
+          <label class="sr-only" for="newsEmail">Correo electrónico</label>
+          <input id="newsEmail" type="email" placeholder="tu@correo.com" required />
+          <button class="btn btn--primary" type="submit">Quiero mi cupón</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer__big" aria-hidden="true">Marea Studio</div>
+    <div class="footer__cols">
+      <div>
+        <p class="footer__label">Comprar</p>
+        <a href="#tienda" data-filter-link="superior">Camisas y camisetas</a>
+        <a href="#tienda" data-filter-link="pantalones">Pantalones</a>
+        <a href="#tienda" data-filter-link="chaquetas">Chaquetas</a>
+        <a href="#tienda" data-filter-link="sastreria">Sastrería</a>
+        <a href="#tienda" data-filter-link="accesorios">Accesorios</a>
+        <a href="#tienda" data-filter-link="oferta">Ofertas</a>
+      </div>
+      <div>
+        <p class="footer__label">Ayuda</p>
+        <a href="#">Envíos y entregas</a>
+        <a href="#">Cambios y devoluciones</a>
+        <a href="#">Guía de tallas</a>
+        <a href="#">Preguntas frecuentes</a>
+      </div>
+      <div>
+        <p class="footer__label">Pagos aceptados</p>
+        <div class="pay-logos">
+          <span>Visa</span><span>Mastercard</span><span>Amex</span><span>PayPal</span><span>Transferencia</span>
+        </div>
+      </div>
+    </div>
+    <p class="footer__legal">© <span id="year"></span> Marea Studio. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- ========== CARRITO (DRAWER) ========== -->
+  <div class="overlay" id="overlay"></div>
+
+  <aside data-lenis-prevent class="drawer" id="cartDrawer" aria-hidden="true" aria-label="Carrito de compra">
+    <div class="drawer__head">
+      <h2>Tu carrito</h2>
+      <button class="icon-btn" id="cartClose" aria-label="Cerrar carrito">
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+
+    <div class="ship-progress" id="shipProgress">
+      <p id="shipText">Te faltan $80 para el envío gratis</p>
+      <div class="ship-progress__bar"><span id="shipBar"></span></div>
+    </div>
+
+    <ul class="cart-list" id="cartList"></ul>
+
+    <div class="cart-empty" id="cartEmpty">
+      <p>Tu carrito está vacío.</p>
+      <a href="#tienda" class="btn btn--primary" id="cartShop">Ir a comprar</a>
+    </div>
+
+    <div class="drawer__foot" id="cartFoot">
+      <div class="delivery-toggle" role="radiogroup" aria-label="Forma de entrega">
+        <label><input type="radio" name="delivery" value="envio" checked /><span>Envío a domicilio</span></label>
+        <label><input type="radio" name="delivery" value="tienda" /><span>Recoger en tienda</span></label>
+      </div>
+
+      <form class="coupon" id="couponForm">
+        <label class="sr-only" for="couponInput">Código de descuento</label>
+        <input id="couponInput" placeholder="Código de descuento" />
+        <button class="btn btn--small" type="submit">Aplicar</button>
+      </form>
+      <p class="coupon__msg" id="couponMsg"></p>
+
+      <dl class="totals">
+        <div><dt>Subtotal</dt><dd id="tSub">$0.00</dd></div>
+        <div id="tDiscRow" hidden><dt>Descuento</dt><dd id="tDisc">−$0.00</dd></div>
+        <div><dt>Envío</dt><dd id="tShip">$0.00</dd></div>
+        <div class="totals__grand"><dt>Total</dt><dd id="tTotal">$0.00</dd></div>
+      </dl>
+      <button class="btn btn--primary btn--block" id="checkoutBtn">Ir a pagar</button>
+    </div>
+  </aside>
+
+  <!-- ========== FAVORITOS (DRAWER) ========== -->
+  <aside data-lenis-prevent class="drawer" id="wishDrawer" aria-hidden="true" aria-label="Favoritos">
+    <div class="drawer__head">
+      <h2>Tus favoritos</h2>
+      <button class="icon-btn" id="wishClose" aria-label="Cerrar favoritos">
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <ul class="cart-list" id="wishList"></ul>
+    <div class="cart-empty" id="wishEmpty"><p>Toca el corazón de una prenda para guardarla aquí.</p></div>
+  </aside>
+
+  <!-- ========== VISTA RÁPIDA DE PRODUCTO ========== -->
+  <div data-lenis-prevent class="modal" id="productModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="pmName">
+    <div class="modal__card modal__card--product">
+      <button class="icon-btn modal__close" data-close aria-label="Cerrar">
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+      <div class="pm__media"><img id="pmImg" src="" alt="" /></div>
+      <div class="pm__body">
+        <p class="pm__cat" id="pmCat"></p>
+        <h3 id="pmName"></h3>
+        <p class="pm__price" id="pmPrice"></p>
+        <p class="pm__desc" id="pmDesc"></p>
+
+        <p class="pm__label">Color</p>
+        <div class="swatches" id="pmColors"></div>
+
+        <p class="pm__label">Talla</p>
+        <div class="sizes" id="pmSizes"></div>
+        <p class="pm__error" id="pmError" hidden>Elige una talla para continuar.</p>
+
+        <div class="pm__actions">
+          <div class="qty">
+            <button type="button" id="pmMinus" aria-label="Quitar uno">−</button>
+            <span id="pmQty">1</span>
+            <button type="button" id="pmPlus" aria-label="Agregar uno">+</button>
+          </div>
+          <button class="btn btn--primary" id="pmAdd">Agregar al carrito</button>
+        </div>
+        <ul class="pm__perks">
+          <li>Disponible para recoger hoy en tienda</li>
+          <li>Cambios gratis durante 30 días</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CHECKOUT ========== -->
+  <div data-lenis-prevent class="modal" id="checkoutModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Finalizar compra">
+    <div class="modal__card modal__card--checkout">
+      <button class="icon-btn modal__close" data-close aria-label="Cerrar">
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+
+      <div class="checkout">
+        <div class="checkout__main">
+          <ol class="steps" id="steps">
+            <li class="is-active">Tus datos</li>
+            <li>Entrega</li>
+            <li>Pago</li>
+          </ol>
+
+          <form id="checkoutForm" novalidate>
+            <!-- Paso 1 -->
+            <fieldset class="step is-active" data-step="1">
+              <legend>¿Quién recibe el pedido?</legend>
+              <div class="field-row">
+                <label class="field"><span>Nombre completo</span><input name="nombre" required autocomplete="name" /></label>
+                <label class="field"><span>Teléfono</span><input name="telefono" type="tel" required autocomplete="tel" /></label>
+              </div>
+              <label class="field"><span>Correo electrónico</span><input name="email" type="email" required autocomplete="email" /></label>
+              <div class="step__nav"><span></span><button type="button" class="btn btn--primary" data-next>Continuar a entrega</button></div>
+            </fieldset>
+
+            <!-- Paso 2 -->
+            <fieldset class="step" data-step="2">
+              <legend>¿Cómo quieres recibirlo?</legend>
+              <div class="delivery-cards">
+                <label class="dcard">
+                  <input type="radio" name="entrega" value="envio" checked />
+                  <span class="dcard__body"><strong>Envío a domicilio</strong><small>2 a 4 días hábiles · gratis desde $80</small></span>
+                </label>
+                <label class="dcard">
+                  <input type="radio" name="entrega" value="tienda" />
+                  <span class="dcard__body"><strong>Recoger en tienda</strong><small>Listo en 2 horas · sin costo</small></span>
+                </label>
+              </div>
+              <div id="addressFields">
+                <label class="field"><span>Dirección</span><input name="direccion" required autocomplete="street-address" /></label>
+                <div class="field-row">
+                  <label class="field"><span>Ciudad</span><input name="ciudad" required autocomplete="address-level2" /></label>
+                  <label class="field"><span>Código postal</span><input name="cp" autocomplete="postal-code" /></label>
+                </div>
+              </div>
+              <p class="pickup-note" id="pickupNote" hidden>Te avisaremos por WhatsApp cuando tu pedido esté listo en Calle de las Palmeras 24.</p>
+              <div class="step__nav"><button type="button" class="btn btn--ghost" data-prev>Volver</button><button type="button" class="btn btn--primary" data-next>Continuar al pago</button></div>
+            </fieldset>
+
+            <!-- Paso 3 -->
+            <fieldset class="step" data-step="3">
+              <legend>Elige cómo pagar</legend>
+              <div class="pay-tabs" role="tablist">
+                <button type="button" class="pay-tab is-active" data-pay="tarjeta" role="tab">Tarjeta</button>
+                <button type="button" class="pay-tab" data-pay="paypal" role="tab">PayPal</button>
+                <button type="button" class="pay-tab" data-pay="transferencia" role="tab">Transferencia</button>
+                <button type="button" class="pay-tab" data-pay="tienda" role="tab">Pagar en tienda</button>
+              </div>
+
+              <div class="pay-panel is-active" data-panel="tarjeta">
+                <div class="card-3d" id="card3d">
+                  <div class="card-3d__face card-3d__front">
+                    <div class="card-3d__top"><span class="chip-ic"></span><span id="cardBrand">Tarjeta</span></div>
+                    <div class="card-3d__num" id="cardNumView">•••• •••• •••• ••••</div>
+                    <div class="card-3d__bottom">
+                      <div><small>Titular</small><span id="cardNameView">Tu nombre</span></div>
+                      <div><small>Vence</small><span id="cardExpView">MM/AA</span></div>
+                    </div>
+                  </div>
+                  <div class="card-3d__face card-3d__back">
+                    <div class="card-3d__stripe"></div>
+                    <div class="card-3d__cvv"><span id="cardCvvView">•••</span></div>
+                  </div>
+                </div>
+                <label class="field"><span>Número de tarjeta</span><input id="ccNum" inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="19" /></label>
+                <label class="field"><span>Nombre en la tarjeta</span><input id="ccName" autocomplete="cc-name" /></label>
+                <div class="field-row">
+                  <label class="field"><span>Vencimiento</span><input id="ccExp" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/AA" maxlength="5" /></label>
+                  <label class="field"><span>CVV</span><input id="ccCvv" inputmode="numeric" autocomplete="cc-csc" placeholder="123" maxlength="4" /></label>
+                </div>
+              </div>
+
+              <div class="pay-panel" data-panel="paypal">
+                <p class="pay-info">Al confirmar te llevaremos a PayPal para que inicies sesión y apruebes el pago. Luego volverás aquí.</p>
+              </div>
+
+              <div class="pay-panel" data-panel="transferencia">
+                <p class="pay-info">Transfiere el total a la cuenta de abajo y envía el comprobante por WhatsApp. Reservamos tu pedido 24 horas.</p>
+                <dl class="bank">
+                  <div><dt>Banco</dt><dd>Banco Ejemplo</dd></div>
+                  <div><dt>Cuenta</dt><dd>0000 0000 0000 0000</dd></div>
+                  <div><dt>Titular</dt><dd>Marea Studio S.A.</dd></div>
+                </dl>
+              </div>
+
+              <div class="pay-panel" data-panel="tienda">
+                <p class="pay-info">Apartamos tus prendas por 48 horas. Pagas en efectivo o con tarjeta cuando vengas a recogerlas.</p>
+              </div>
+
+              <p class="form-error" id="payError" hidden></p>
+              <div class="step__nav"><button type="button" class="btn btn--ghost" data-prev>Volver</button><button type="submit" class="btn btn--primary" id="payBtn">Pagar <span id="payAmount"></span></button></div>
+              <p class="secure-note">Pago simulado para demostración. Ningún dato se envía a un servidor.</p>
+            </fieldset>
+          </form>
+
+          <!-- Éxito -->
+          <div class="success" id="success" hidden>
+            <div class="success__check"><svg viewBox="0 0 52 52"><path d="M14 27l8 8 16-17"/></svg></div>
+            <h3>¡Pedido confirmado!</h3>
+            <p>Tu número de pedido es <strong id="orderId"></strong>. Te enviamos el resumen a tu correo.</p>
+            <button class="btn btn--primary" data-close>Seguir comprando</button>
+          </div>
+        </div>
+
+        <aside class="checkout__summary">
+          <h3>Resumen</h3>
+          <ul id="summaryList"></ul>
+          <dl class="totals" id="summaryTotals"></dl>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notificaciones -->
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <!-- ========== LIBRERÍAS ========== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+
+  <!-- ========== SCRIPTS DE LA WEB ========== -->
+  <script src="data.js"></script>
+  <script src="cart.js"></script>
+  <script src="main.js"></script>
+  <script src="animations.js"></script>
+</body>
+</html>
